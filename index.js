@@ -50,14 +50,13 @@ server.post('/projects/:id/tasks', (req, res) => {
   const { id } = req.params
   const { title } = req.body
   
-  
-  
   const project = projects.find(p => p.id == id);
-   
-
-    
     project.tasks.push(title)
-    projects.push(project)
+  const pjindex = projects.findIndex(p=> p.id == id);
+    
+    
+    projects[pjindex] = project
+   // projects.push(project)
    
   
 
